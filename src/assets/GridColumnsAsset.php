@@ -1,17 +1,17 @@
 <?php
 
-namespace app\components\grid;
+namespace Netsnatch\Yii2GridColumns\assets;
 
 use yii\web\AssetBundle;
 
-class AdminGridViewAsset extends AssetBundle
+class GridColumnsAsset extends AssetBundle
 {
-    public $sourcePath = __DIR__ . '/assets';
+    public $sourcePath = __DIR__ . '/src';
     public $js = [
-        'admin-grid-view.js',
+        'grid-columns.js',
     ];
     public $css = [
-        'admin-grid-view.css'
+        'grid-columns.css'
     ];
     public $depends = [
         '\yii\web\JqueryAsset',

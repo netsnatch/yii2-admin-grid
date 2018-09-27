@@ -1,0 +1,15 @@
+.grid-columns__list {
+    padding: 0 15px;
+}
+.grid-columns__list .list-group-item {
+    padding: 5px 10px ;
+}
+.grid-columns__hidden {
+    display: none;
+}
+.grid-columns__list__item {
+    cursor: move;
+}
+.grid-columns__bottom {
+    text-align: center;
+}

@@ -1,0 +1,21 @@
+{
+  "name": "netsnatch/yii2-grid-columns",
+  "description": "Yii2 grid columns",
+  "authors": [
+    {
+      "name": "netsnatch"
+    }
+  ],
+  "keywords": [
+    "yii2"
+  ],
+  "require": {
+    "php": ">=7.1",
+    "yiisoft/yii2": "~2.0.7"
+  },
+  "autoload": {
+    "psr-4": {
+      "Netsnatch\\Yii2GridColumns\\": "src/"
+    }
+  }
+}
