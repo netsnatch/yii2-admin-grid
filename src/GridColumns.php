@@ -4,7 +4,7 @@ namespace Netsnatch\Yii2GridColumns;
 
 use Netsnatch\Yii2GridColumns\assets\GridColumnsAsset;
 use yii\base\InvalidConfigException;
-use yii\bootstrap\Widget;
+use yii\base\Widget;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
 use yii\helpers\Inflector;
@@ -20,6 +20,8 @@ class GridColumns extends Widget
     public $buttonOptions;
 
     public $placeSelector;
+
+    public $clientOptions = [];
 
     /** @var GridView */
     public $gridViewWidget;
@@ -52,8 +54,7 @@ class GridColumns extends Widget
 
     public function initOptions()
     {
-        $id = $this->options['id'];
-        $this->clientOptions['id'] = $id;
+        $this->clientOptions['id'] = $this->getId();
         $this->clientOptions['name'] = $this->name;
         $this->clientOptions['targetWidgetId'] = $this->gridViewWidget->getId();
         $this->clientOptions['placeSelector'] = $this->placeSelector;
@@ -93,7 +94,7 @@ class GridColumns extends Widget
                     break;
             }
 
-            $columnClass = $id . '-' . $attr;
+            $columnClass = $this->getId() . '-' . $attr;
             $column->headerOptions['class'] = $columnClass;
 
             $columnsData[] = [
@@ -111,7 +112,7 @@ class GridColumns extends Widget
         GridColumnsAsset::register($this->getView());
 
         $this->getView()->registerJs(
-            "jQuery('#" . $this->options['id'] . "').yiiGridColumns(" . Json::htmlEncode($this->clientOptions) . ");",
+            "jQuery('#" . $this->getId() . "').yiiGridColumns(" . Json::htmlEncode($this->clientOptions) . ");",
             View::POS_END
         );
     }
