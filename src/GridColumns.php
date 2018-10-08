@@ -44,7 +44,6 @@ class GridColumns extends Widget
     public function run()
     {
         $this->initOptions();
-        $this->registerScripts();
 
         return $this->render('widget', [
             'id' => $this->getId(),

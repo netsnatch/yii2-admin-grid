@@ -34,13 +34,23 @@ class GridColumnsBehavior extends Behavior
             throw new InvalidCallException('Widget must be an instance of yii\grid\GridView');
         }
 
+        /** @var GridColumns $gridColumnsWidget */
+        $gridColumnsWidget = null;
+
         $content = GridColumns::widget([
+            'on afterRun' => function(WidgetEvent $event) use (&$gridColumnsWidget) {
+                $gridColumnsWidget = $event->sender;
+            },
             'name' => $this->name,
             'hideBeforeReady' => $this->hideBeforeReady,
             'gridViewWidget' => $widget,
             'buttonOptions' => $this->buttonOptions,
             'placeSelector' => $this->placeSelector,
         ]);
+
+        Yii::$app->getView()->on(View::EVENT_BEGIN_BODY, function () use ($gridColumnsWidget) { // For pjax
+            $gridColumnsWidget->registerScripts();
+        });
 
         Yii::$app->getView()->on(View::EVENT_END_BODY, function () use ($content) {
             echo $content;
