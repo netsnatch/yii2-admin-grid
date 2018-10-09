@@ -2,7 +2,7 @@ Instalation
 ---
 Either run
 
-`$ php composer.phar require netsnatch/yii2-grid-columns:"~1.0.3"`
+`$ php composer.phar require netsnatch/yii2-grid-columns:"~1.0.4"`
 
 or add
 
